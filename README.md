@@ -56,7 +56,7 @@ Para buscar o ponto extra, foi implementada uma estrutura mais sofisticada:
 1.  **Pré-requisitos:** Certifique-se de ter o Python 3 instalado na sua máquina.
 2.  **Clonar o Repositório:**
     ```bash
-    git clone [https://github.com/JeytheJo/projeto-final-python-JeytheJo-pedrorufass](https://github.com/JeytheJo/projeto-final-python-JeytheJo-pedrorufass)
+    https://github.com/JeytheJo/projeto-final-python-Jo-oEduardo-PedroRufino
     cd projeto-final-python-JeytheJo-pedrorufass
     ```
 3.  **Executar o Script:**
