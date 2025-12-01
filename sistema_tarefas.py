@@ -238,8 +238,67 @@ def gerar_relatorio():
     linhas()
 
 
+# Função 7: EXTRA - Filtra tarefas usando List Comprehension
+def filtrar_tarefas():
+    #   Permite ao usuário filtrar e listar tarefas por status (Pendente, Em Andamento, Concluída) utiliza List Comprehension.
+
+    print("\n--- FILTRAR TAREFAS POR STATUS ---")
+
+    if not TAREFAS:
+        print("Nenhuma tarefa para filtrar.")
+        linhas()
+        return
+
+    print("\nStatus de Filtro Disponíveis:")
+    print("1. Pendente")
+    print("2. Em Andamento")
+    print("3. Concluída")
+
+    escolha = input("Escolha o número do status para filtrar (1-3): ")
+
+    status_escolhido = ""
+    if escolha == "1":
+        status_escolhido = "Pendente"
+    elif escolha == "2":
+        status_escolhido = "Em Andamento"
+    elif escolha == "3":
+        status_escolhido = "Concluída"
+    else:
+        print("Opção inválida.")
+        linhas()
+        return
+
+    tarefas_filtradas = [t for t in TAREFAS if t["status"] == status_escolhido]
+
+    print(f"\n--- Resultados para Status: {status_escolhido} ---")
+
+    if not tarefas_filtradas:
+        print("Nenhuma tarefa encontrada com este status.")
+    else:
+        # Reutiliza a lógica de listagem, mas com a lista filtrada
+        print(f"{'ID':<5} {'Status':<20} {'Prazo':<12} {'Nome':<20} {'Descrição':<30}")
+        print("-" * 85)
+
+        for t in tarefas_filtradas:
+            status_texto = t["status"]
+            cor = MAPA_CORES.get(status_texto, RESET)
+            status_colorido = f"{cor}{status_texto}{RESET}"
+
+            print(
+                f"{t['id']:<5} "
+                f"{status_colorido:<20} "
+                f"{t['prazo']:<12} "
+                f"{t['nome']:<20} "
+                f"{t['descricao']:<30}"
+            )
+        print("-" * 85)
+
+    linhas()
+
+
 # Estrutura principal do Menu
 def menu():
+    """Apresenta o menu de opções e controla o fluxo principal do programa."""
     while True:
         linhas()
         print("         MENU - SISTEMA DE GESTÃO DE TAREFAS")
@@ -248,11 +307,12 @@ def menu():
         print("2. Listar Tarefas (READ)")
         print("3. Atualizar Tarefa (UPDATE)")
         print("4. Deletar Tarefa (DELETE)")
-        print("5. Relatório de Status (RESUMO)")  # NOVO!
-        print("6. Sair")
+        print("5. Relatório de Status (RESUMO)")
+        print("6. Filtrar Tarefas por Status (EXTRA)")  # NOVO! Ponto bônus
+        print("7. Sair")
         linhas()
 
-        escolha = input("Escolha uma opção (1-6): ")  # Mudou de 5 para 6
+        escolha = input("Escolha uma opção (1-7): ")  # Mudou de 6 para 7
 
         if escolha == "1":
             cadastrar_tarefa()
@@ -263,12 +323,14 @@ def menu():
         elif escolha == "4":
             deletar_tarefa()
         elif escolha == "5":
-            gerar_relatorio()  # CHAMADA PARA A NOVA FUNÇÃO
-        elif escolha == "6":  # Mudou de 5 para 6
+            gerar_relatorio()
+        elif escolha == "6":
+            filtrar_tarefas()  # CHAMADA PARA A FUNÇÃO BÔNUS
+        elif escolha == "7":  # Mudou de 6 para 7
             print("\nObrigado por usar o Sistema de Tarefas. Até logo!")
             break
         else:
-            print("\nOpção inválida. Por favor, escolha um número entre 1 e 6.")
+            print("\nOpção inválida. Por favor, escolha um número entre 1 e 7.")
 
 
 # Bloco principal do programa
