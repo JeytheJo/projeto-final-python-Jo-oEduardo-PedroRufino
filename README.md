@@ -1,7 +1,7 @@
 # 📋 Projeto Final - Sistema de Gestão de Tarefas (To-Do List)
 
 ![Static Badge](https://camo.githubusercontent.com/8cdbf3ae389801b84e9f67d2533b9c40d837016d1d55a5dd5455809da863998c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374617475732d50726f6e746f253242)        ![Static Badge](https://img.shields.io/badge/python-3.10+-blue?logo=python)
-![Static Badge](https://img.shields.io/badge/Pontos%20Extras-Adicionado-green)
+
 
 Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) no terminal, desenvolvido em Python. Ele atende aos requisitos do Trabalho Final da disciplina de **Programação I** (Python) do Bacharelado em Engenharia de Software do Centro Universitário Santo Agostinho (FSA).
 
