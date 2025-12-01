@@ -31,10 +31,10 @@ Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) 
 
 [cite_start]O sistema foi desenvolvido seguindo os requisitos técnicos obrigatórios [cite: 29] da disciplina:
 
-* [cite_start]**Estrutura de Dados:** Uso obrigatório de **Lista de Dicionários** para armazenar os registros (`TAREFAS` é a lista principal)[cite: 38].
-* [cite_start]**Funções:** Mínimo de 5 funções, cada uma com responsabilidade clara (`cadastrar_tarefa()`, `listar_TAREFAS()`, `atualizar_tarefa()`, `deletar_tarefa()`, `gerar_relatorio()`, `menu()`)[cite: 30].
-* [cite_start]**Controle de Fluxo:** Utilização de `while True` para o menu principal (repetição) e `if`/`elif`/`else` para tomada de decisões e validações[cite: 42, 43].
-* [cite_start]**Interação:** Entrada e saída de dados com `input()` e `print()`[cite: 44].
+***Estrutura de Dados:** Uso obrigatório de **Lista de Dicionários** para armazenar os registros (`TAREFAS` é a lista principal).
+***Funções:** Mínimo de 5 funções, cada uma com responsabilidade clara (`cadastrar_tarefa()`, `listar_TAREFAS()`, `atualizar_tarefa()`, `deletar_tarefa()`, `gerar_relatorio()`, `menu()`).
+***Controle de Fluxo:** Utilização de `while True` para o menu principal (repetição) e `if`/`elif`/`else` para tomada de decisões e validações.
+***Interação:** Entrada e saída de dados com `input()` e `print()`.
 * **Melhoria Visual (BÔNUS):** Utilização de **Códigos de Escape ANSI** para colorir o *Status* das tarefas no terminal (Verde para Concluída, Vermelho para Pendente), uma funcionalidade extra para legibilidade.
 
 ## ⚙️ Como Executar o Programa
