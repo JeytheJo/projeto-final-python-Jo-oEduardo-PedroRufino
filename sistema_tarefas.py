@@ -197,6 +197,47 @@ def deletar_tarefa():
     linhas()
 
 
+# Função 5: RELATORIO - Cria um relatório sobre as tarefas
+def gerar_relatorio():
+    print("\n--- RELATÓRIO DE STATUS ---")
+
+    if not TAREFAS:
+        print("Nenhuma tarefa cadastrada para gerar o relatório.")
+        linhas()
+        return
+
+    # Inicializa um dicionário para armazenar a contagem de cada status
+    contagem_status = {"Pendente": 0, "Em Andamento": 0, "Concluída": 0}
+
+    total_tarefas = 0
+
+    for tarefa in TAREFAS:
+        status_atual = tarefa.get("status")  # Pega o valor do status
+
+        if status_atual in contagem_status:
+            contagem_status[status_atual] += 1
+            total_tarefas += 1
+
+    linhas()
+    print(f"Total de Tarefas Registradas: {total_tarefas}")
+    linhas()
+
+    for status, contagem in contagem_status.items():
+        # Lógica para aplicar a cor na saída do relatório
+        cor = MAPA_CORES.get(status, RESET)
+
+        # Calcula a percentagem
+        percentual = (contagem / total_tarefas) * 100 if total_tarefas > 0 else 0
+
+        print(
+            f"Status: {cor}{status:<15}{RESET} "
+            f"| Quantidade: {contagem:<3} "
+            f"| % do Total: {percentual:.2f}%"
+        )
+
+    linhas()
+
+
 # Estrutura principal do Menu
 def menu():
     while True:
@@ -206,11 +247,12 @@ def menu():
         print("1. Cadastrar Nova Tarefa (CREATE)")
         print("2. Listar Tarefas (READ)")
         print("3. Atualizar Tarefa (UPDATE)")
-        print("4. Deletar Tarefa (DELETE)")  # Adicionada para completar o CRUD
-        print("5. Sair")
+        print("4. Deletar Tarefa (DELETE)")
+        print("5. Relatório de Status (RESUMO)")  # NOVO!
+        print("6. Sair")
         linhas()
 
-        escolha = input("Escolha uma opção (1-5): ")
+        escolha = input("Escolha uma opção (1-6): ")  # Mudou de 5 para 6
 
         if escolha == "1":
             cadastrar_tarefa()
@@ -219,12 +261,14 @@ def menu():
         elif escolha == "3":
             atualizar_tarefa()
         elif escolha == "4":
-            deletar_tarefa()  # Nova função
+            deletar_tarefa()
         elif escolha == "5":
+            gerar_relatorio()  # CHAMADA PARA A NOVA FUNÇÃO
+        elif escolha == "6":  # Mudou de 5 para 6
             print("\nObrigado por usar o Sistema de Tarefas. Até logo!")
             break
         else:
-            print("\nOpção inválida. Por favor, escolha um número entre 1 e 5.")
+            print("\nOpção inválida. Por favor, escolha um número entre 1 e 6.")
 
 
 # Bloco principal do programa
