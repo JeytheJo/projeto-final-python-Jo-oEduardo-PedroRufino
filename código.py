@@ -3,6 +3,17 @@
 TAREFAS = []
 proximo_ID = 1  # Variável global para controlar o ID
 
+VERMELHO = "\033[91m"
+AMARELO = "\033[93m"
+VERDE = "\033[92m"
+RESET = "\033[0m"
+
+MAPA_CORES = {
+    "Pendente": VERMELHO,
+    "Em Andamento": AMARELO,
+    "Concluída": VERDE,
+}
+
 
 def linhas():
     print("=" * 60)
@@ -57,14 +68,21 @@ def listar_TAREFAS():
         linhas()
         return
 
-    print(f"{'ID':<5} {'Status':<15} {'Prazo':<12} {'Nome':<20} {'Descrição':<30}")
+    print(f"{'ID':<5} {'Status':<20} {'Prazo':<12} {'Nome':<20} {'Descrição':<30}")
     print("-" * 85)
 
     for t in TAREFAS:
-        # Exibe cada campo formatado (ajuste de largura para alinhamento)
+        # Lógica para aplicar a cor
+        status_texto = t["status"]
+        cor = MAPA_CORES.get(
+            status_texto, RESET
+        )  # Busca a cor, usa RESET como padrão se não encontrar
+
+        status_colorido = f"{cor}{status_texto}{RESET}"
+
         print(
             f"{t['id']:<5} "
-            f"{t['status']:<15} "
+            f"{status_colorido:<20} "  # Usamos a string colorida aqui
             f"{t['prazo']:<12} "
             f"{t['nome']:<20} "
             f"{t['descricao']:<30}"
