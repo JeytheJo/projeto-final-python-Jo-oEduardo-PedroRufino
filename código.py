@@ -1,4 +1,4 @@
-# Sistema de TAREFAS (To-Do List)
+# SISTEMA DE TAREFAS (To-Do List)
 
 TAREFAS = []
 proximo_ID = 1  # Variável global para controlar o ID
@@ -8,19 +8,25 @@ def linhas():
     print("=" * 60)
 
 
+def buscar_tarefa(tarefa_id):
+    for t in TAREFAS:
+        if t["id"] == tarefa_id:
+            return t
+    return None
+
+
 # Função 1: CREATE - Insere uma nova tarefa.
 def cadastrar_tarefa():
+    """Permite ao usuário inserir uma nova tarefa na lista TAREFAS."""
     global proximo_ID
 
     print("\n--- CADASTRAR NOVA TAREFA ---")
 
-    # 1. Solicitação: Nome da Tarefa
     nome = input("Nome da tarefa (Título curto): ").strip()
     if not nome:
         print("ERRO: O nome da tarefa não pode ser vazio.")
         return
 
-    # 2. Solicitação da descrição
     descricao = input("Descrição detalhada: ").strip()
     if not descricao:
         print("ERRO: A descrição não pode ser vazia.")
@@ -28,18 +34,18 @@ def cadastrar_tarefa():
 
     prazo = input("Prazo (ex: 'Hoje', '02/12'): ")
 
-    # Criação do dicionário
     nova_tarefa = {
         "id": proximo_ID,
         "nome": nome,
         "descricao": descricao,
-        "status": "Pendente",
+        "status": "Pendente",  # Status inicial padrão
         "prazo": prazo,
     }
 
     TAREFAS.append(nova_tarefa)
     print(f"\nTarefa '{nome}' cadastrada com sucesso! (ID: {proximo_ID})")
     proximo_ID += 1
+    linhas()
 
 
 # Função 2: READ - Exibe os registros
@@ -48,14 +54,14 @@ def listar_TAREFAS():
 
     if not TAREFAS:
         print("Nenhuma tarefa cadastrada.")
+        linhas()
         return
 
-    # Cabeçalho ajustado para incluir o NOME
     print(f"{'ID':<5} {'Status':<15} {'Prazo':<12} {'Nome':<20} {'Descrição':<30}")
     print("-" * 85)
 
     for t in TAREFAS:
-        # Exibe cada campo formatado
+        # Exibe cada campo formatado (ajuste de largura para alinhamento)
         print(
             f"{t['id']:<5} "
             f"{t['status']:<15} "
@@ -64,13 +70,7 @@ def listar_TAREFAS():
             f"{t['descricao']:<30}"
         )
     print("-" * 85)
-
-
-def buscar_tarefa(tarefa_id):
-    for t in TAREFAS:
-        if t["id"] == tarefa_id:
-            return t
-    return None
+    linhas()
 
 
 # Função 3: UPDATE - Atualiza um registro existente.
@@ -128,9 +128,87 @@ def atualizar_tarefa():
             op_status = input("Escolha (1-3): ")
             if op_status == "1":
                 tarefa_atual["status"] = "Pendente"
+                print(f"Status atualizado para: {tarefa_atual['status']}")
             elif op_status == "2":
                 tarefa_atual["status"] = "Em Andamento"
+                print(f"Status atualizado para: {tarefa_atual['status']}")
             elif op_status == "3":
                 tarefa_atual["status"] = "Concluída"
-            if __name__ == "__main__":
-                menu()
+                print(f"Status atualizado para: {tarefa_atual['status']}")
+            else:
+                print("Opção de status inválida.")
+
+        elif escolha == "4":
+            novo_prazo = input(f"Novo Prazo (Atual: {tarefa_atual['prazo']}): ")
+            tarefa_atual["prazo"] = novo_prazo
+            print("Prazo atualizado!")
+
+        else:
+            print("Opção de atualização inválida.")
+
+    else:
+        print(f"ERRO: Tarefa com ID {tarefa_id} não encontrada.")
+    linhas()
+
+
+# Função 4: DELETE - Remove um registro existente (FUNÇÃO SUGERIDA)
+def deletar_tarefa():
+    """Remove uma tarefa da lista TAREFAS com base no seu ID."""
+    print("\n--- DELETAR TAREFA ---")
+
+    listar_TAREFAS()
+    if not TAREFAS:
+        return
+
+    try:
+        tarefa_id = int(input("\nDigite o ID da tarefa que deseja DELETAR: "))
+    except ValueError:
+        print("ERRO: O ID deve ser um número inteiro.")
+        return
+
+    # Usamos o `buscar_tarefa` para verificar se existe
+    tarefa_a_remover = buscar_tarefa(tarefa_id)
+
+    if tarefa_a_remover:
+        TAREFAS.remove(tarefa_a_remover)
+        print(
+            f"Tarefa ID {tarefa_id} ('{tarefa_a_remover['nome']}') foi deletada com sucesso."
+        )
+    else:
+        print(f"ERRO: Tarefa com ID {tarefa_id} não encontrada.")
+    linhas()
+
+
+# Estrutura principal do Menu
+def menu():
+    while True:
+        linhas()
+        print("         MENU - SISTEMA DE GESTÃO DE TAREFAS")
+        linhas()
+        print("1. Cadastrar Nova Tarefa (CREATE)")
+        print("2. Listar Tarefas (READ)")
+        print("3. Atualizar Tarefa (UPDATE)")
+        print("4. Deletar Tarefa (DELETE)")  # Adicionada para completar o CRUD
+        print("5. Sair")
+        linhas()
+
+        escolha = input("Escolha uma opção (1-5): ")
+
+        if escolha == "1":
+            cadastrar_tarefa()
+        elif escolha == "2":
+            listar_TAREFAS()
+        elif escolha == "3":
+            atualizar_tarefa()
+        elif escolha == "4":
+            deletar_tarefa()  # Nova função
+        elif escolha == "5":
+            print("\nObrigado por usar o Sistema de Tarefas. Até logo!")
+            break
+        else:
+            print("\nOpção inválida. Por favor, escolha um número entre 1 e 5.")
+
+
+# Bloco principal do programa
+if __name__ == "__main__":
+    menu()
