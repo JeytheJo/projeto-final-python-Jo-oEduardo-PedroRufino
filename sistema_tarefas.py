@@ -298,21 +298,20 @@ def filtrar_tarefas():
 
 # Estrutura principal do Menu
 def menu():
-    """Apresenta o menu de opções e controla o fluxo principal do programa."""
     while True:
         linhas()
         print("         MENU - SISTEMA DE GESTÃO DE TAREFAS")
         linhas()
-        print("1. Cadastrar Nova Tarefa (CREATE)")
-        print("2. Listar Tarefas (READ)")
-        print("3. Atualizar Tarefa (UPDATE)")
-        print("4. Deletar Tarefa (DELETE)")
-        print("5. Relatório de Status (RESUMO)")
-        print("6. Filtrar Tarefas por Status (EXTRA)")  # NOVO! Ponto bônus
+        print("1. Cadastrar Nova Tarefa")
+        print("2. Listar Tarefas)")
+        print("3. Atualizar Tarefa")
+        print("4. Deletar Tarefa")
+        print("5. Relatório de Status")
+        print("6. Filtrar Tarefas por Status")
         print("7. Sair")
         linhas()
 
-        escolha = input("Escolha uma opção (1-7): ")  # Mudou de 6 para 7
+        escolha = input("Escolha uma opção (1-7): ")
 
         if escolha == "1":
             cadastrar_tarefa()
@@ -325,14 +324,13 @@ def menu():
         elif escolha == "5":
             gerar_relatorio()
         elif escolha == "6":
-            filtrar_tarefas()  # CHAMADA PARA A FUNÇÃO BÔNUS
-        elif escolha == "7":  # Mudou de 6 para 7
+            filtrar_tarefas()
+        elif escolha == "7":
             print("\nObrigado por usar o Sistema de Tarefas. Até logo!")
             break
         else:
             print("\nOpção inválida. Por favor, escolha um número entre 1 e 7.")
 
 
-# Bloco principal do programa
 if __name__ == "__main__":
     menu()
