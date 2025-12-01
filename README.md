@@ -57,7 +57,7 @@ Para buscar o ponto extra, foi implementada uma estrutura mais sofisticada:
 2.  **Clonar o Repositório:**
     ```bash
     https://github.com/JeytheJo/projeto-final-python-Jo-oEduardo-PedroRufino
-    cd projeto-final-python-JeytheJo-pedrorufass
+    cd projeto-final-python-Jo-oEduardo-PedroRufino
     ```
 3.  **Executar o Script:**
     Assumindo que o nome do arquivo principal é `sistema_tarefas.py`:
