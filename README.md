@@ -1,11 +1,11 @@
 # 📋 Projeto Final - Sistema de Gestão de Tarefas (To-Do List)
 
-![Static Badge](https://camo.githubusercontent.com/8cdbf3ae389801b84e9f67d2533b9c40d837016d1d55a5dd5455809da863998c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374617475732d50726f6e746f253242)                                                                              ![Static Badge](https://img.shields.io/badge/python-3.10+-blue?logo=python)
+![Static Badge](https://camo.githubusercontent.com/8cdbf3ae389801b84e9f67d2533b9c40d837016d1d55a5dd5455809da863998c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374617475732d50726f6e746f253242)        ![Static Badge](https://img.shields.io/badge/python-3.10+-blue?logo=python)
+![Static Badge](https://img.shields.io/badge/Pontos%20Extras-Adicionado-green)
 
+Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) no terminal, desenvolvido em Python. Ele atende aos requisitos do Trabalho Final da disciplina de **Programação I** (Python) do Bacharelado em Engenharia de Software do Centro Universitário Santo Agostinho (FSA).
 
-Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) no terminal, desenvolvido em Python. [cite_start]Ele atende aos requisitos do Trabalho Final da disciplina de **Programação I** (Python) [cite: 4] [cite_start]do Bacharelado em Engenharia de Software [cite: 3] [cite_start]do Centro Universitário Santo Agostinho (FSA)[cite: 2].
-
-[cite_start]O sistema utiliza a arquitetura **CRUD (Create, Read, Update, Delete)** [cite: 8] [cite_start]para gerenciar todos os registros de tarefas, seguindo o tema sugerido de "Sistema de Tarefas (descrição, status, prazo)".
+O sistema utiliza a arquitetura **CRUD (Create, Read, Update, Delete)** para gerenciar todos os registros de tarefas, seguindo o tema sugerido de "Sistema de Tarefas (descrição, status, prazo)".
 
 ## 👤 Equipe de Desenvolvimento
 
@@ -14,28 +14,42 @@ Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) 
 | **João Eduardo** | JeytheJo | [https://github.com/JeytheJo](https://github.com/JeytheJo) |
 | **Pedro Rufino** | pedrorufass | [https://github.com/pedrorufass](https://github.com/pedrorufass) |
 
+---
+
 ## 🚀 Funcionalidades Implementadas
 
-[cite_start]O programa apresenta um menu interativo [cite: 15] [cite_start]com funções separadas para cada operação [cite: 16][cite_start], garantindo clareza e organização do código[cite: 46].
+O programa apresenta um **menu interativo** com funções separadas para cada operação, garantindo clareza e organização do código.
 
-| Opção no Menu | Funcionalidade | Descrição (Operação CRUD) | [cite_start]Requisito [cite: 17, 23, 24] |
+| Opção no Menu | Funcionalidade | Descrição (Operação CRUD) | Requisito |
 | :---: | :--- | :--- | :--- |
-| **1** | Cadastrar Nova Tarefa | Adiciona um novo registro à lista, com ID único. | **C**reate |
-| **2** | Listar Tarefas | Exibe todos os registros de forma tabular e organizada. | **R**ead |
-| **3** | Atualizar Tarefa | Permite editar Nome, Descrição, Prazo e Status de uma tarefa. | **U**pdate |
-| **4** | Deletar Tarefa | Remove um registro específico da lista, utilizando o ID. | **D**elete |
-| **5** | Relatório de Status | Gera uma análise simples, contando o número de tarefas por Status. | Relatório/Resumo |
-| **6** | Sair | Encerra o programa de forma segura. | Sair do Programa |
+| **1** | Cadastrar Nova Tarefa | Insere um novo registro com ID único. | **C**reate |
+| **2** | Listar Tarefas | Exibe todos os registros de forma tabular. | **R**ead |
+| **3** | Atualizar Tarefa | Permite editar detalhes de um registro existente. | **U**pdate |
+| **4** | Deletar Tarefa | Exclui um registro da lista, utilizando o ID. | **D**elete |
+| **5** | Relatório de Status | Gera uma análise de resumo, contando tarefas por status. | Relatório/Resumo |
+| **6** | Filtrar por Status | **(EXTRA)** Permite listar apenas tarefas de um status específico. | Estrutura Sofisticada |
+| **7** | Sair | Encerra o sistema de forma segura. | Sair do Programa |
+
+---
 
 ## 💡 Recursos e Tecnologias
 
-[cite_start]O sistema foi desenvolvido seguindo os requisitos técnicos obrigatórios [cite: 29] da disciplina:
+O sistema foi desenvolvido seguindo todos os requisitos técnicos obrigatórios.
 
-***Estrutura de Dados:** Uso obrigatório de **Lista de Dicionários** para armazenar os registros (`TAREFAS` é a lista principal).
-***Funções:** Mínimo de 5 funções, cada uma com responsabilidade clara (`cadastrar_tarefa()`, `listar_TAREFAS()`, `atualizar_tarefa()`, `deletar_tarefa()`, `gerar_relatorio()`, `menu()`).
-***Controle de Fluxo:** Utilização de `while True` para o menu principal (repetição) e `if`/`elif`/`else` para tomada de decisões e validações.
-***Interação:** Entrada e saída de dados com `input()` e `print()`.
-* **Melhoria Visual (BÔNUS):** Utilização de **Códigos de Escape ANSI** para colorir o *Status* das tarefas no terminal (Verde para Concluída, Vermelho para Pendente), uma funcionalidade extra para legibilidade.
+* **Estrutura de Dados:** Uso obrigatório de **Lista de Dicionários** para armazenar os registros (`TAREFAS` é a lista principal).
+* **Funções:** Mínimo de 5 funções, cada uma com responsabilidade clara (`menu()`, `cadastrar_tarefa()`, `listar_TAREFAS()`, `atualizar_tarefa()`, `deletar_tarefa()`, `gerar_relatorio()`, `filtrar_tarefas()`).
+* **Controle de Fluxo:** Utilização de estruturas de repetição (`while` e `for`) para o menu e percorrer registros, e condicionais (`if`/`elif`/`else`) para controle de decisões.
+* **Boas Práticas:** Código com indentação, comentários, nomes de variáveis e funções significativos, e mensagens amigáveis ao usuário.
+
+### 🌟 Bônus Implementado (0,5 Ponto Extra)
+
+Para buscar o ponto extra, foi implementada uma estrutura mais sofisticada:
+
+* **List Comprehension:** Utilizada na função **`filtrar_tarefas()`** para criar de forma concisa e eficiente uma nova lista contendo apenas as tarefas que correspondem ao status desejado.
+
+* **Melhoria Visual:** Utilização de **Códigos de Escape ANSI** para colorir o *Status* das tarefas no terminal (Verde para Concluída, Vermelho para Pendente) para melhorar a legibilidade.
+
+---
 
 ## ⚙️ Como Executar o Programa
 
@@ -46,11 +60,16 @@ Este projeto implementa um **Sistema de Gerenciamento de Tarefas** (To-Do List) 
     cd projeto-final-python-JeytheJo-pedrorufass
     ```
 3.  **Executar o Script:**
+    Assumindo que o nome do arquivo principal é `sistema_tarefas.py`:
     ```bash
-    sistema_tarefas.py
+    python sistema_tarefas.py
     ```
 
+---
+
 ## 🖼️ Exemplo de Uso (Menu Principal)
+
+Ao iniciar, o programa exibirá o menu interativo:
 
 Ao iniciar, o programa exibirá o menu interativo:
 ### Exemplo de Saída (Opção 2 - Listar Tarefas com Cores)
