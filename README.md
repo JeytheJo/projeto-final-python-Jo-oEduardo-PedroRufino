@@ -60,7 +60,7 @@ Para buscar o ponto extra, foi implementada uma estrutura mais sofisticada:
     cd projeto-final-python-Jo-oEduardo-PedroRufino
     ```
 3.  **Executar o Script:**
-    Assumindo que o nome do arquivo principal é `sistema_tarefas.py`:
+    O nome do arquivo principal é `sistema_tarefas.py`:
     ```bash
     python sistema_tarefas.py
     ```
