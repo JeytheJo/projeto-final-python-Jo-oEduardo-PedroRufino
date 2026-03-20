@@ -70,8 +70,6 @@ Para buscar o ponto extra, foi implementada uma estrutura mais sofisticada:
 ## 🖼️ Exemplo de Uso (Menu Principal)
 
 Ao iniciar, o programa exibirá o menu interativo:
-
-Ao iniciar, o programa exibirá o menu interativo:
 ### Exemplo de Saída (Opção 2 - Listar Tarefas com Cores)
 
 O sistema apresenta a lista de tarefas, utilizando o ID único [cite: 67] para fácil gerenciamento:
