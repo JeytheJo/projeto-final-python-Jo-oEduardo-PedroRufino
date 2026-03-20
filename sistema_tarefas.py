@@ -303,7 +303,7 @@ def menu():
         print("         MENU - SISTEMA DE GESTÃO DE TAREFAS")
         linhas()
         print("1. Cadastrar Nova Tarefa")
-        print("2. Listar Tarefas)")
+        print("2. Listar Tarefas")
         print("3. Atualizar Tarefa")
         print("4. Deletar Tarefa")
         print("5. Relatório de Status")
